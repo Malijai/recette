@@ -1,0 +1,32 @@
+{% load i18n %}
+{% load static %}
+<html>
+    <head>
+        <title>Recettes Malijaï</title>
+        <link rel="stylesheet" href="{% static 'recette/style_recettes.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <div class="date">
+                <div class="btn-group">
+                   <a href="{% url 'listerecettes' %}" class="button">Liste des recettes </a>
+                </div>
+            </div>
+         <h1>Liste des recettes</h1>
+        </div>
+<div class="wrap">
+  <div class="left_col">
+      {% block content %}
+      {% endblock %}
+  </div>
+
+</div>
+        <div class="footer">
+            <div class="footergauche">
+              {% block pagination %}
+                <a href="https://github.com/Malijai/" class="date" ><img src="/static/images/GitHub-Mark-Light-32px.png"></a>
+              {% endblock %}
+             </div>
+        </div>
+    </body>
+</html>
