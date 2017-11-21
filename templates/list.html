@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Recettes</title>
+
+    </head>
+    <body>
+     <div class="page-header">
+        <h1>Recettes</h1>
+
+    {% for recette in recettes %}
+        <div class="post">
+            <div class="date">
+                {{recette.title }}, {{recette.contree.nom }}
+            </div>
+        <p>{{ recette.description }}
+        <br />
+            {% for cat in recette.categorie.all %}
+                {{cat.nom}};
+            {% endfor %}
+        </div>
+    {% endfor %}
+
+
+
+
+<div class="pagination">
+{% if recettes.has_other_pages %}
+    {% if recettes.has_previous %}
+      <a href="?page={{ posts.previous_page_number }}">&laquo;</a>
+    {% else %}
+       <a href="#" >&laquo;</a>
+    {% endif %}
+    {% for i in recettes.paginator.page_range %}
+      {% if recettes.number == i %}
+       <a href="#" class="active"(current)>{{ i }}</a>
+      {% else %}
+        <a href="?page={{ i }}">{{ i }}</a>
+      {% endif %}
+    {% endfor %}
+    {% if recettes.has_next %}
+      <a href="?page={{ posts.next_page_number }}">&raquo;</a>
+    {% else %}
+       <a href="#" >&raquo;</a>
+    {% endif %}
+{% endif %}
+</div>
+
+
+
+    </body>
+</html>
