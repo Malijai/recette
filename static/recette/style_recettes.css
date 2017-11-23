@@ -71,8 +71,13 @@ textarea {
 
 .left_col {
    float:left;
-   width:40%;
+   width:80%;
    margin-left: 5%;
+}
+
+.point_col {
+   float:left;
+   width:5%;
 }
 
 .right_col {
@@ -104,9 +109,32 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
     text-transform: capitalize;
 }
 
+.nomrecette {
+    color: #4F2814;
+    font: bold 1em ;
+    font-size: 14pt;
+    text-decoration: none;
+}
+
 .date {
     float: right;
     color: #828282;
+}
+
+.img-circle {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+        border: 2px solid grey;
+}
+
+.point {
+    height: 35px;
+    width: 35px;
+    background-color: #BD7742;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid grey;
 }
 
 .date a, .date a:visited {
@@ -131,12 +159,13 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
 }
 
 .post {
-    opacity: 0.9;
+    opacity: 0.8;
     margin-bottom: 5px;
     border: 2px solid grey;
     border-radius: 10px 25px;
     background-color: #DFF2D7;
     padding: 2px 10px 2px 15px;
+    min-height: 40px;
 }
 
 .post h1 a, .post h1 a:visited {

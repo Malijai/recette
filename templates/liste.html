@@ -12,11 +12,18 @@
                 {% for cat in recette.categorie.all %}
                 {{cat.nom}} -
             {% endfor %}
+
             </div>
-        <p>
-            <b><a href="{% url 'view_recette' recette.id %}">{{recette.title }}</a></b>
+            <div class="point_col">
+            <p>{% if recette.photo %}
+                <a href="{% url 'view_recette' recette.id %}"><img class="img-circle" src="{{ recette.photo.url }}" width="50px" ></a>
+            {% else %}
+            <a href="{% url 'view_recette' recette.id %}"><span class="point"></span></a></p>
+           {% endif  %}
+            </div>
+            <p class="nomrecette"><b>{{recette.title }}</b>
         <br />
-            {{ recette.description }}
+            {{ recette.description }}</p>
         </div>
     {% endfor %}
 
