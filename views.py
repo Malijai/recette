@@ -36,9 +36,7 @@ def get_cherchetexte(request):
         form = form_class(data=request.POST)
         if form.is_valid():
             texte = request.POST.get('recherchetexte', '')
-            criterion1 = Q(instructions__icontains=texte)
-            criterion2 = Q(title__icontains=texte)
-            recettes = Recette.objects.filter(criterion1 or criterion2)
+            recettes = Recette.objects.filter(Q(title__icontains=texte) | Q(instructions__icontains=texte))
             if recettes:
                 return render(request, 'liste.html', {'recettes': recettes})
             else:
