@@ -8,7 +8,7 @@
         <h1>{{recette.title }}</h1>
         <div class="date">
             {{recette.contree.nom }} -
-        Préparation : {{ recette.preparation }} min; Cuisson : {{ recette.cuisson }} min</div>
+        Préparation : {{ recette.preparation|safe }} min; Cuisson : {{ recette.cuisson }} min</div>
         .
     </div>
      <h3>Instructions</h3>
