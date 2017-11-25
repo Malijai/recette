@@ -1,5 +1,6 @@
 {% extends 'baseunerecette.html' %}
 {% load i18n %}
+{% load formatenombre %}
 
 <div class="page-header">
 
@@ -20,7 +21,14 @@
     <h3>Ingrédients</h3>
 <ul>
     {% for ingredient in ingredients %}
-        <li><b>{{ingredient.dequoi }}</b> {{ingredient.ingredient.nom }}, {{ingredient.quantite }} {{ingredient.unitee }}</li>
+        <li>{% if ingredient.dequoi != '-' %}
+                <b>{{ingredient.dequoi }}</b>
+            {% endif %}
+        {{ingredient.ingredient.nom|capfirst }}, {{ingredient.quantite|int_format}}
+            {% if ingredient.unitee != '-' %}
+                {{ingredient.unitee }}
+            {% endif %}
+        </li>
     {% endfor %}
 </ul>
 
@@ -28,7 +36,7 @@
     {% block photo %}
              {% if recette.photo %}
             <img class="img-grande" src="{{ recette.photo.url }}">
-          {% endif  %}
+          {% endif %}
    {% endblock %}
 
 {% block pagination %}
