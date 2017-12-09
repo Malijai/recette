@@ -287,7 +287,7 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
 }
 
 .img-grande {
-       border-radius: 10px 25px;
+    border-radius: 10px 25px;
     border: 2px solid grey;
     width: 350px;
 }
