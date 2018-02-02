@@ -50,7 +50,7 @@ class Ingredient(models.Model):
 class Recette(models.Model):
     title = models.CharField(max_length=200)
     instructions = RichTextField(config_name='billet')
-    contree = models.ForeignKey(Contree)
+    contree = models.ForeignKey(Contree, on_delete=models.DO_NOTHING)
     description = models.CharField(max_length=250, blank=True, null=True,)
     cuisson = models.IntegerField()
     preparation = models.IntegerField()
@@ -69,8 +69,8 @@ class Recette(models.Model):
         return u'%s' % self.title
 
 class Quantite(models.Model):
-    recette = models.ForeignKey(Recette)
-    ingredient = models.ForeignKey(Ingredient)
+    recette = models.ForeignKey(Recette, on_delete=models.DO_NOTHING)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.DO_NOTHING)
     quantite = models.DecimalField(default=0, max_digits=5, decimal_places=2)
     unitee = models.CharField(max_length=30, blank=True, null=True)
     dequoi = models.CharField(max_length=200, blank=True, null=True)
