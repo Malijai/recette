@@ -22,11 +22,11 @@
 <ul>
     {% for ingredient in ingredients %}
         <li>{% if ingredient.dequoi != '-' %}
-                <b>{{ingredient.dequoi }}</b>
+                <b>{{ingredient.dequoi|default_if_none:"&nbsp;" }}</b>
             {% endif %}
         {{ingredient.ingredient.nom|capfirst }}, {{ingredient.quantite}}
             {% if ingredient.unitee != '-' %}
-                {{ingredient.unitee }}
+                {{ingredient.unitee|default_if_none:"&nbsp;" }}
             {% endif %}
         </li>
     {% endfor %}
