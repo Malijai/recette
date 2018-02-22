@@ -24,7 +24,7 @@
         <li>{% if ingredient.dequoi != '-' %}
                 <b>{{ingredient.dequoi|default_if_none:"&nbsp;" }}</b>
             {% endif %}
-        {{ingredient.ingredient.nom|capfirst }}, {{ingredient.quantite}}
+        {{ingredient.ingredient.nom|capfirst }}, {{ingredient.quantite.normalize}}
             {% if ingredient.unitee != '-' %}
                 {{ingredient.unitee|default_if_none:"&nbsp;" }}
             {% endif %}
