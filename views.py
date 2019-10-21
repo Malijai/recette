@@ -1,24 +1,25 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, render, redirect, get_object_or_404
-from .models import Categorie,Contree,Ingredient,Quantite,Recette
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.shortcuts import render_to_response, render, get_object_or_404
+from .models import Quantite,Recette
+from django.core.paginator import InvalidPage
 from .forms import RechercheForm
 from django.db.models import Q
+from .paginationalpha import NamePaginator
 
 
 def listingr(request):
     recette_list = Recette.objects.all()
-    paginator = Paginator(recette_list, 12) # Show 15 post par page
-    page = request.GET.get('page')
+    paginator = NamePaginator(recette_list, on="title", per_page=2)
     try:
-        recettes = paginator.page(page)
-    except PageNotAnInteger:
-            # If page is not an integer, deliver first page.
-        recettes = paginator.page(1)
-    except EmptyPage:
-            # If page is out of range (e.g. 9999), deliver last page of results.
-        recettes = paginator.page(paginator.num_pages)
-    return render(request, 'liste.html', {'recettes': recettes})
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+    try:
+        page = paginator.page(page)
+    except InvalidPage:
+        page = paginator.page(paginator.num_pages)
+
+    return render(request, 'liste.html', {'page': page})
 
 
 def view_recette(request, pk):

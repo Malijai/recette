@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
-from django.contrib.auth.models import User
 from django.db import models
 from ckeditor.fields import RichTextField
 
@@ -30,9 +28,6 @@ class Contree(models.Model):
     def __str__(self):
         return '%s' % self.nom
 
-    def __unicode__(self):
-        return u'%s' % self.nom
-
 
 class Ingredient(models.Model):
     nom = models.CharField(max_length=200, unique=True)
@@ -42,9 +37,6 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return '%s' % self.nom
-
-    def __unicode__(self):
-        return u'%s' % self.nom
 
 
 class Recette(models.Model):
@@ -65,8 +57,6 @@ class Recette(models.Model):
     def __str__(self):
         return '%s' % self.title
 
-    def __unicode__(self):
-        return u'%s' % self.title
 
 class Quantite(models.Model):
     recette = models.ForeignKey(Recette, on_delete=models.DO_NOTHING)
@@ -80,6 +70,3 @@ class Quantite(models.Model):
 
     def __str__(self):
         return '%s %s %s %s' % (self.dequoi, self.ingredient, self.quantite, self.unitee)
-
-    def __unicode__(self):
-        return u'%s %s %s %s' % (self.dequoi, self.ingredient, self.quantite, self.unitee)
