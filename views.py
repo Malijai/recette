@@ -18,7 +18,6 @@ def listingr(request):
         page = paginator.page(page)
     except InvalidPage:
         page = paginator.page(paginator.num_pages)
-
     return render(request, 'liste.html', {'page': page})
 
 
@@ -31,6 +30,7 @@ def view_recette(request, pk):
                                 'ingredients' : ingredients
                             })
 
+
 def get_cherchetexte(request):
     form_class = RechercheForm
     if request.method == 'POST':
@@ -38,8 +38,17 @@ def get_cherchetexte(request):
         if form.is_valid():
             texte = request.POST.get('recherchetexte', '')
             recettes = Recette.objects.filter(Q(title__icontains=texte) | Q(instructions__icontains=texte))
+            paginator = NamePaginator(recettes, on="title", per_page=2)
+            try:
+                page = int(request.GET.get('page', '1'))
+            except ValueError:
+                page = 1
+            try:
+                page = paginator.page(page)
+            except InvalidPage:
+                page = paginator.page(paginator.num_pages)
             if recettes:
-                return render(request, 'liste.html', {'recettes': recettes})
+                return render(request, 'liste.html', {'page': page})
             else:
                 return render(request, 'chercherecette.html', {'form': form_class, 'message': texte})
     else:
