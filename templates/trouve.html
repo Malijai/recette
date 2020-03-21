@@ -1,14 +1,30 @@
-{% extends 'baserecettes.html' %}
 {% load i18n %}
-
-{% block content %}
-    {% for recette in page.object_list %}
+{% load static %}
+<html>
+    <head>
+        <title>Recettes Malijaï</title>
+        <link rel="stylesheet" href="{% static 'recette/style_recettes.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <div class="date">
+                <div class="btn-group">
+                   <a href="{% url 'listerecettes' %}" class="button">Toutes les recettes </a>
+                   <a href="{% url 'chercherecette' %}" class="button">Recherche</a>
+                </div>
+            </div>
+         <h1>Liste des recettes trouvées</h1>
+        </div>
+<div class="wrap">
+  <div class="left_col">
+    {% for recette in recettes %}
         <div class="post">
             <div class="date">
-                {{recette.contree.nom }} -
+                 {{recette.contree.nom }} -
                 {% for cat in recette.categorie.all %}
                 {{cat.nom}} -
             {% endfor %}
+
             </div>
             <div class="point_col">
             <p>{% if recette.photo %}
@@ -22,19 +38,9 @@
             {{ recette.description }}</p>
         </div>
     {% endfor %}
-{% endblock %}
 
-{% block pagination %}
-<div class="pagination">
-                <div class="pagination">
-                    {% for p in page.paginator.pages %}
-                        {% ifequal p page %}
-                            <a class="active" href="">{{ page }}</a>
-                        {% else %}
-                            <a href="?page={{ p.number }}">{{ p }}</a>
-                        {% endifequal %}
-                    {% endfor %}
-                </div>
+  </div>
 </div>
- {% endblock %}
+</body>
+</html>
 
