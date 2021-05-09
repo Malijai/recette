@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render_to_response, render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from .models import Quantite,Recette
 from django.core.paginator import InvalidPage
 from .forms import RechercheForm
@@ -25,7 +25,7 @@ def view_recette(request, pk):
     recette = get_object_or_404(Recette, id=pk)
     ingredients = Quantite.objects.filter(recette_id=pk)
 
-    return render_to_response('view_recette.html', {
+    return render(request, 'view_recette.html', {
                                 'recette': recette,
                                 'ingredients' : ingredients
                             })
