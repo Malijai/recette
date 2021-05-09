@@ -35,12 +35,16 @@ h3 {
 	border: none;
 }
 
-.navigation, #footer, .noprint, .img-grande, .entetelangue, .image {
+.navigation, .noprint, .img-grande, .entetelangue, .image, .right_col{
 	display: none;
 }
 
-.page-header, .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+.page-header, .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active, wrap right_col {
 	display: none;
+}
+
+.regroupe {
+    clear: both;
 }
 
 .left_corps {
@@ -63,3 +67,11 @@ h3 {
     border: none;
 }
 
+.date {
+	background-color: #fff;
+	color: #000;
+	font-family: "Times New Roman", Garamond, serif;
+	font-size: 12pt;
+	width: 100%;
+	margin: 6px 10px 6px 0px;
+}

@@ -1,5 +1,6 @@
 import string
 from django.core.paginator import InvalidPage, EmptyPage
+import unicodedata
 
 
 class NamePaginator(object):
@@ -18,8 +19,8 @@ class NamePaginator(object):
                 obj_str = str(getattr(obj, on))
             else:
                 obj_str = str(obj)
-
-            letter = str.upper(obj_str[0])
+            my_var = unicodedata.normalize('NFKD', obj_str[0]).encode('ascii', 'ignore').decode('ascii')
+            letter = str.upper(my_var)
 
             if letter not in chunks: chunks[letter] = []
 
