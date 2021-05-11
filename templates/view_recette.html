@@ -2,43 +2,46 @@
 {% load i18n %}
 {% load formatenombre %}
 
-<div class="page-header">
+{% block titre %}
+<h2>{{recette.title }}</h2>
+{% endblock %}
 
 {% block instructions %}
     <div class="post">
-        <h1>{{recette.title }}</h1>
-        <div class="date">
-            {{recette.contree.nom }} -
+        Pays ou région d'origine : {{recette.contree.nom }} -
         Préparation : {{ recette.preparation}} min; Cuisson : {{ recette.cuisson }} min
+    </div>
+    <div class="w3-row w3-padding flex-container">
+        <div class="textes w3-half w3-container">
+        <h3>Ingrédients</h3>
+        {% block ingrédients %}
+            <ul>
+            {% for ingredient in ingredients %}
+                <li>{% if ingredient.dequoi != '-' %}
+                    <b>{{ingredient.dequoi|default_if_none:"&nbsp;" }}</b>
+                    {% endif %}
+                {{ingredient.ingredient.nom|capfirst }}, {{ingredient.quantite.normalize}}
+                {% if ingredient.unitee != '-' %}
+                    {{ingredient.unitee|default_if_none:"&nbsp;" }}
+                {% endif %}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endblock ingrédients %}
+        </div>
+        {% block photo %}
+        <div class="w3-half w3-right-align">
+            {% if recette.photo %}
+                <img class="img-grande" src="{{ recette.photo.url }}">
+            {% endif %}
+        </div>
+         {% endblock photo %}
+    </div>
+    <div class="w3-padding">
+        <div class="textes w3-row w3-padding">
+        <h3>Instructions</h3>
+            {{recette.instructions|safe }}
         </div>
     </div>
-     <h3>Instructions</h3>
-          {{recette.instructions|safe }}
-{% endblock %}
+{% endblock instructions %}
 
-{% block content %}
-    <h3>Ingrédients</h3>
-<ul>
-    {% for ingredient in ingredients %}
-        <li>{% if ingredient.dequoi != '-' %}
-                <b>{{ingredient.dequoi|default_if_none:"&nbsp;" }}</b>
-            {% endif %}
-        {{ingredient.ingredient.nom|capfirst }}, {{ingredient.quantite.normalize}}
-            {% if ingredient.unitee != '-' %}
-                {{ingredient.unitee|default_if_none:"&nbsp;" }}
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
-{% endblock %}
-
-{% block photo %}
-    {% if recette.photo %}
-        <img class="img-grande" src="{{ recette.photo.url }}">
-    {% endif %}
-{% endblock %}
-
-{% block pagination %}
-<div class="pagination">
-</div>
- {% endblock %}

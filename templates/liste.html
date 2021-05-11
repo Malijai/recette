@@ -19,7 +19,7 @@
             </div>
             <p class="nomrecette"><b>{{recette.title }}</b>
         <br />
-            {{ recette.description }}</p>
+            {{ recette.description|default:"" }}</p>
         </div>
     {% endfor %}
 {% endblock %}

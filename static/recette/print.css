@@ -7,6 +7,8 @@ body, p, td, th, ul, a {
 	font-size: 12pt;
 	width: 100%;
 	margin: 6px 10px 6px 0px;
+	   border: none;
+
 }
 
 p, p.espace {
@@ -74,4 +76,11 @@ h3 {
 	font-size: 12pt;
 	width: 100%;
 	margin: 6px 10px 6px 0px;
+}
+
+.textes {
+   float:left;
+   width:95%;
+   margin-bottom: 5px;
+   border: none;
 }

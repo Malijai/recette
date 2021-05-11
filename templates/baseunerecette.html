@@ -1,43 +1,44 @@
 {% load i18n %}
 {% load static %}
 <html>
-    <head>
-        <title>Recettes Malijaï</title>
-        <link rel="stylesheet" type="text/css" href="{% static 'recette/style_recette.css' %}">
-        <link rel="stylesheet" media="print" type="text/css" href="{% static 'recette/print.css' %}">
-    </head>
-    <body>
-        <div class="page-header">
-            <div class="date">
-                <div class="btn-group">
-                   <a href="{% url 'listerecettes' %}" class="button">Toutes les recettes </a>
-                   <a href="{% url 'chercherecette' %}" class="button">Recherche</a>
-                </div>
-            </div>
-         <h1>Une des recettes</h1>
+<head>
+    <title>Recettes Malijaï Caulet</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'recette/recettes_css.css' %}">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static '/recette/w3.css' %}">
+    <link rel="stylesheet" media="print" type="text/css" href="{% static '/recette/print.css' %}">
+</head>
+<body class="unique">
+<header class="w3-row" id="myHeader" style="background-color: #2D3B08;color: #ffffff;">
+    <div class="w3-threequarter w3-padding">
+        {% if recette.title %}
+            <h2>{{recette.title}}</h2>
+        {% else %}
+            <h2>Recherche</h2>
+{% endif %}
+    </div>
+    <div class="w3-quarter w3-center noprint">
+        <div class="btn-group">
+            <a href="{% url 'listerecettes' %}" class="button">Toutes les recettes </a>
+            <a href="{% url 'chercherecette' %}" class="button">Recherche</a>
         </div>
-        <div class="wrap">
-            <div class="left_corps">
-                  {% block instructions %}
-                  {% endblock %}
-            </div>
-            <div class="regroupe">
-                <div class="left_col">
-                    {% block content %}
-                    {% endblock %}
-                </div>
-                <div class="right_col">
-                    {% block photo %}
-                    {% endblock %}
-                </div>
-            </div>
-        </div>
-        <div class="noprint footer">
-            <div class="footergauche">
-              {% block pagination %}
-              {% endblock %}
-            <a href="https://github.com/Malijai/" class="date" ><img src="/static/images/GitHub-Mark-Light-32px.png"></a>
-             </div>
-        </div>
-    </body>
+    </div>
+</header>
+<div class="wrap">
+    {% block instructions %}
+        {% block ingrédients %}
+        {% endblock ingrédients %}
+        {% block photo %}
+        {% endblock photo %}
+    {% endblock instructions %}
+    {% block recherche %}
+    {% endblock recherche %}
+
+</div>
+<div class="footer noprint">
+    <a href="https://github.com/Malijai/" class="date" ><img src="/static/images/GitHub-Mark-Light-32px.png"></a>
+</div>
+</body>
 </html>
+</html>
+
+

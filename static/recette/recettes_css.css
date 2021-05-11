@@ -1,0 +1,251 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(Arsenal-Regular.otf);
+}
+
+body  {
+    margin: 0;
+    font-size: 16px;
+    font-family: myFirstFont;
+}
+
+.unique {
+    background: url(IMG_0163_30.JPG) no-repeat center fixed ;
+    background-size: cover;
+}
+
+.multiples  {
+    background: url(IMG_5999_60.JPG) no-repeat center fixed;
+    background-size: cover;
+}
+
+p  {
+    margin: 0;
+    font-size: 16px;
+    font-family: myFirstFont;
+}
+
+.page-header {
+    opacity: 0.8;
+    background-color: #2D3B08;
+    margin-top: 0;
+    padding: 10px 10px 10px 40px;
+    margin-bottom: 10px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 26pt;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 3px;
+}
+
+h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
+    text-transform: capitalize;
+}
+
+.nomrecette {
+    color: #4F2814;
+    font: bold 1em ;
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.wrap {
+   width:90%;
+   margin:5 auto;
+   padding: 10px 0px 50px 10px;
+   min-height: 50%;
+}
+
+.left_corps {
+   float:left;
+   width:75%;
+}
+
+.left_col {
+   float:left;
+   width:80%;
+   margin-left: 5%;
+}
+
+.point_col {
+   float:left;
+   width:5%;
+}
+
+.right_col {
+   float:right;
+   width:40%;
+   padding: 10px 10px 10px 50px;
+   margin-right: 5%;
+}
+
+.right_col h2{
+    text-align: center;
+}
+
+.date {
+    float: right;
+    color: #828282;
+}
+
+.img-circle {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    border: 2px solid grey;
+}
+
+.point {
+    height: 35px;
+    width: 35px;
+    background-color: #BD7742;
+    border-radius: 50%;
+    display: inline-block;
+    border: 2px solid grey;
+}
+
+.date a, .date a:visited {
+    color: white;
+    font: bold 1em ;
+    text-decoration: none;
+}
+
+.post {
+    opacity: 0.8;
+    margin-bottom: 5px;
+    border: 2px solid grey;
+    border-radius: 10px 25px;
+    background-color: #DFF2D7;
+    padding: 2px 10px 2px 15px;
+    min-height: 40px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+
+.btn-default{
+  display: inline-block;
+  padding: 10px 25px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #347793;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 3px 6px #677C7D;
+}
+
+.btn-default:hover {background-color: #2B4D59}
+
+.btn-default:active, .btn-group .button:active {
+  background-color: #2B4D59;
+  box-shadow: 0 3px #677C7D;
+  transform: translateY(4px);
+}
+
+.btn-group .button {
+    background-color: #87A644;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    float: left;
+}
+
+.btn-group .button:hover {
+    background-color: #4CBDE0;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: white;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ddd; /* Gray */
+}
+
+.pagination a.active {
+    background-color: #E5E5E5;
+    color: black;
+    border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.image {
+    border-width: 1px;
+    border-color: Black;
+}
+
+.img-grande {
+    border-radius: 10px 25px;
+    border: 2px solid grey;
+    width: 350px;
+}
+
+.textes {
+   background-color: #E7ECB8;
+   opacity: 0.9;
+   margin-bottom: 30px;
+   padding: 10px 10px 10px 10px;
+   border: 2px solid grey;
+   border-radius: 10px 25px;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   opacity: 0.9;
+   background-color: #2D3B08;
+   color: white;
+   text-align: center;
+   padding: 15px 70px;
+}
+
+.footergauche {
+   width:74%;
+}
+
+.footer a,.footer a:visited {
+    color: #FFFFFF;
+    font: bold 1em ;
+}
+
+.flex-container{
+    min-height: 350px;
+    display: -webkit-flex; /* Safari */
+    display: flex; /* Standard syntax */
+}
+
+.flex-container .textes{
+    -webkit-flex: 1; /* Safari */
+    -ms-flex: 1; /* IE 10 */
+    flex: 1; /* Standard syntax */
+}
+

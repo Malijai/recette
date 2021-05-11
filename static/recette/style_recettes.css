@@ -3,16 +3,10 @@
     src: url(Arsenal-Regular.otf);
 }
 
-html{height: 100%;}
-
 body  {
     margin: 0;
     font-size: 16px;
     font-family: myFirstFont;
-    background: url(IMG_5999_60.JPG) no-repeat center fixed ;
-    background-size: cover;
-    height: 95%;
-
 }
 
 p  {
@@ -23,11 +17,6 @@ p  {
 
 p.espace  {
     margin: 10;
-}
-
-input, select, textarea {
-    background-color: #E5E5E5;
-    font-family: myFirstFont;
 }
 
 .entetelangue {
@@ -319,4 +308,19 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
   border: none;
   border-radius: 5px;
   box-shadow: 2px 5px #677C7D;
+}
+
+.image {
+    border-width: 1px;
+    border-color: Black;
+}
+
+.regroupe {
+   width:90%;
+}
+
+.img-grande {
+    border-radius: 10px 25px;
+    border: 2px solid grey;
+    width: 350px;
 }
