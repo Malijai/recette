@@ -11,7 +11,7 @@
         Pays ou région d'origine : {{recette.contree.nom }} -
         Préparation : {{ recette.preparation}} min; Cuisson : {{ recette.cuisson }} min
     </div>
-    <div class="w3-row w3-padding flex-container">
+    <div class="w3-row flex-container">
         <div class="textes w3-half w3-container">
         <h3>Ingrédients</h3>
         {% block ingrédients %}
@@ -37,11 +37,11 @@
         </div>
          {% endblock photo %}
     </div>
-    <div class="w3-padding">
+
         <div class="textes w3-row w3-padding">
         <h3>Instructions</h3>
             {{recette.instructions|safe }}
         </div>
-    </div>
+
 {% endblock instructions %}
 

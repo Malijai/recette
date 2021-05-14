@@ -61,6 +61,7 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
    min-height: 50%;
    height: 90%;
    overflow: auto;
+   margin-bottom:50px;
 }
 
 .left_corps {
@@ -215,10 +216,10 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
 .textes {
    background-color: #E7ECB8;
    opacity: 0.9;
-   margin-bottom: 30px;
    padding: 10px 10px 10px 10px;
    border: 2px solid grey;
    border-radius: 10px 25px;
+   margin-bottom:50px;
 }
 
 .footer {
@@ -243,7 +244,7 @@ h1::first-letter, h2::first-letter, h3::first-letter, h4::first-letter {
 }
 
 .flex-container{
-    min-height: 350px;
+    min-height: 340px;
     display: -webkit-flex; /* Safari */
     display: flex; /* Standard syntax */
 }
